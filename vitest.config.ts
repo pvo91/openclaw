@@ -6,7 +6,9 @@ import { defineConfig } from "vitest/config";
 const repoRoot = path.dirname(fileURLToPath(import.meta.url));
 const isCI = process.env.CI === "true" || process.env.GITHUB_ACTIONS === "true";
 const isWindows = process.platform === "win32";
-const localWorkers = Math.max(4, Math.min(16, os.cpus().length));
+// Half the cores, capped at 6: two checkouts (main tree + worktree) may run
+// tests in parallel and must not oversubscribe the box (2026-09-01 load-37 incident).
+const localWorkers = Math.max(2, Math.min(6, Math.floor(os.cpus().length / 2)));
 const ciWorkers = isWindows ? 2 : 3;
 
 export default defineConfig({
