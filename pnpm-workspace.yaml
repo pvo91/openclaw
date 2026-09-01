@@ -4,6 +4,37 @@ packages:
   - packages/*
   - extensions/*
 
+# Migrated from package.json "pnpm" block (2026-09-01): pnpm 10.23 no longer
+# reads pnpm.overrides / pnpm.minimumReleaseAge from package.json (it warns and
+# ignores them), so the 15 security overrides below were silently inactive.
+minimumReleaseAge: 2880
+
+# Floors raised 2026-09-01 to the current advisory thresholds; the old ">=X"
+# lower bounds froze at their set date and six had slipped below the patched
+# versions. protobufjs is scoped per consumer, NOT blanket: the 7.x line needs
+# >=7.6.6 <8 while otlp-transformer pins 8.x, which has its own >=8.6.6 floor.
+overrides:
+  hono: ">=4.13.5"
+  fast-xml-parser: ">=5.5.7"
+  request: npm:@cypress/request@3.0.10
+  request-promise: npm:@cypress/request-promise@5.0.0
+  form-data: 2.5.4
+  minimatch: 10.2.4
+  qs: 6.14.2
+  node-domexception: npm:@nolyfill/domexception@^1.0.28
+  "@sinclair/typebox": 0.34.48
+  tar: ">=7.5.22"
+  tough-cookie: 4.1.3
+  undici: ">=7.29.0 <8"
+  dompurify: ">=3.4.13"
+  music-metadata: ">=11.12.3"
+  "@hono/node-server": ">=1.19.15 <2"
+  axios: ">=1.18.0"
+  "@larksuiteoapi/node-sdk>protobufjs": ">=7.6.6 <8"
+  "@google/genai>protobufjs": ">=7.6.6 <8"
+  "@grpc/proto-loader>protobufjs": ">=7.6.6 <8"
+  "@opentelemetry/otlp-transformer>protobufjs": ">=8.6.6"
+
 onlyBuiltDependencies:
   - "@lydell/node-pty"
   - "@matrix-org/matrix-sdk-crypto-nodejs"
@@ -11,6 +42,7 @@ onlyBuiltDependencies:
   - "@whiskeysockets/baileys"
   - authenticate-pam
   - esbuild
+  - koffi
   - node-llama-cpp
   - protobufjs
   - sharp
