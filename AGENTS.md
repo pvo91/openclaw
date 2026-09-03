@@ -1,4 +1,4 @@
-> **ARCHIVIERT 2026-09-03 (Patric-Entscheid, Kontroll-Plan critic-08):** OpenClaw-Mac-Node seit Monaten nicht gebaut (dist 02.03., node_modules 26.03.), plist `ai.openclaw.node.plist` nie geladen; der Zuruf-Kanal läuft seit 30.07. über Claude Code `--channels`. Keine Dependency-Pflege mehr, plist liegt in `~/.claude/backups/launchagents/`. Reaktivierung: Ordner zurück nach `01 Projects/`, plist zurück, `pnpm install && pnpm build`. Re-Eval Moltbot/OpenClaw laut Hermes-Eval (31.08.) Ende November 2026.
+> **ARCHIVIERT 2026-09-03 (Patric-Entscheid, Kontroll-Plan critic-08):** OpenClaw-Mac-Node seit Monaten nicht gebaut (dist 02.03., node_modules 26.03.), plist `ai.openclaw.node.plist` nie geladen; der Zuruf-Kanal läuft seit 30.07. über Claude Code `--channels`. Keine Dependency-Pflege mehr, plist liegt in `~/.claude/backups/launchagents/`. Reaktivierung: Ordner zurück nach `01 Projects/`, plist zurück, `pnpm install && pnpm build`. Re-Eval Moltbot/OpenClaw drei Monate nach dem Studio-Cutover (Plan E9/F9), also um den 22.12.2026.
 
 # Repository Guidelines
 
